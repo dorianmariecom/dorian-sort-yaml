@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'dorian/sort-yaml'
+Dorian::SortYaml.run
