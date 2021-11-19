@@ -1,18 +1,30 @@
-require 'yaml'
+require "yaml"
 
 module Dorian
   class SortYaml
     def self.run
-      if ARGV.size < 1
-        puts 'USAGE: sort-yaml FILE [FILE...]'
+      if ARGV[0] == "--help" || ARGV[0] == "-h"
+        puts "USAGE: sort-yaml FILES..."
+        puts "USAGE: ... | sort-yaml"
         exit
       end
 
-      ARGV.each do |filepath|
-        File.write(
-          filepath,
-          sort_yaml(YAML.safe_load(File.read(filepath))).to_yaml
-        )
+      inputs = ARGV
+
+      if inputs.size.zero?
+        inputs = STDIN.each_line.to_a
+
+        if File.exist?(inputs.first.strip)
+          inputs = inputs.map(&:strip)
+        else
+          inputs = [inputs.join]
+        end
+      end
+
+      inputs.each do |input|
+        content = File.exist?(input) ? File.read(input) : input
+        yaml = sort_yaml(YAML.safe_load(File.read(filepath))).to_yaml
+        File.exist?(input) ? File.write(input, yaml) : puts(yaml)
       end
     end
 
