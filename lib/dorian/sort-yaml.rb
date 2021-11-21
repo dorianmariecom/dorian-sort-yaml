@@ -23,7 +23,7 @@ module Dorian
 
       inputs.each do |input|
         content = File.exist?(input) ? File.read(input) : input
-        yaml = sort_yaml(YAML.safe_load(File.read(filepath))).to_yaml
+        yaml = sort_yaml(YAML.safe_load(content)).to_yaml
         File.exist?(input) ? File.write(input, yaml) : puts(yaml)
       end
     end

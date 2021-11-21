@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "dorian-sort-yaml"
-  s.version = "0.2.0"
+  s.version = "0.2.1"
   s.summary = "Sorts keys of hashes of YAML files"
   s.description = s.summary + "\n\n" + "e.g. `sort-yaml config/locales/*`"
   s.authors = ["Dorian Marié"]
