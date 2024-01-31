@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "yaml"
 
 module Dorian
@@ -11,14 +13,15 @@ module Dorian
 
       inputs = ARGV
 
-      if inputs.size.zero?
-        inputs = STDIN.each_line.to_a
+      if inputs.empty?
+        inputs = $stdin.each_line.to_a
 
-        if File.exist?(inputs.first.strip)
-          inputs = inputs.map(&:strip)
-        else
-          inputs = [inputs.join]
-        end
+        inputs =
+          if File.exist?(inputs.first.strip)
+            inputs.map(&:strip)
+          else
+            [inputs.join]
+          end
       end
 
       inputs.each do |input|
