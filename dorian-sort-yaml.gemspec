@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = "dorian-sort-yaml"
-  s.version = "0.3.2"
+  s.version = "0.3.3"
   s.summary = "Sorts keys of hashes of YAML files"
   s.description = "#{s.summary}\n\ne.g. `sort-yaml config/locales/*`"
   s.authors = ["Dorian Marié"]
@@ -12,4 +12,6 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/dorianmariecom/sort-yaml"
   s.license = "MIT"
   s.metadata = { "rubygems_mfa_required" => "true" }
+
+  s.required_ruby_version = ">= 3.3.0"
 end
