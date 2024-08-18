@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = "dorian-sort-yaml"
-  s.version = "0.4.1"
+  s.version = "0.4.2"
   s.summary = "sorts yaml"
   s.description = s.summary
   s.authors = ["Dorian Marié"]
