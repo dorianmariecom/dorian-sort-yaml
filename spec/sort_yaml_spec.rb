@@ -11,9 +11,7 @@ RSpec.describe "sort-yaml" do
       a: 1
     YAML
 
-    `bin/sort-yaml #{tempfile.path}`
-
-    expect(File.read(tempfile)).to eq(<<~YAML)
+    expect(`bin/sort-yaml #{tempfile.path}`).to eq(<<~YAML)
       ---
       a: 1
       b: 2
