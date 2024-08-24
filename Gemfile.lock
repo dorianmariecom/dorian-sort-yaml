@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dorian-sort-yaml (0.4.3)
+    dorian-sort-yaml (1.0.0)
       dorian-arguments
       yaml
 
