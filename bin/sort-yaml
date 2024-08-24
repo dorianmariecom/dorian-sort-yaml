@@ -17,10 +17,7 @@ def sort_yaml(data)
   end
 end
 
-parsed = Dorian::Arguments.parse(
-  version: { alias: :v },
-  help: { alias: :h }
-)
+parsed = Dorian::Arguments.parse(version: { alias: :v }, help: { alias: :h })
 
 abort parsed.help if parsed.options.help
 
@@ -31,6 +28,4 @@ end
 inputs = parsed.arguments + parsed.files.map { |file| File.read(file) }
 inputs = [$stdin.each_line.to_a.map(&:strip).join("\n")] if inputs.empty?
 
-inputs.each do |input|
-  puts sort_yaml(YAML.safe_load(input)).to_yaml
-end
+inputs.each { |input| puts sort_yaml(YAML.safe_load(input)).to_yaml }
